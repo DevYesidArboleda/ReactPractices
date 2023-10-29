@@ -12,5 +12,14 @@
     }
   };
   
+  const resultadoArray = [];
+
+  fetch("https://pokeapi.co/api/v2/pokemon")
+    .then((res) => res.json())
+    .then((data) => {
+      data.results.forEach((element) => {
+        resultadoArray.push(element);
+      });
+    });
 
   export default Pokemon;

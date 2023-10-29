@@ -4,8 +4,10 @@ import dreamLogo from "/logoDreamCode.png";
 import MyButton from "./components/MyButton";
 import Pokemon from "./components/Pokemon";
 import ItemFrust from "./components/ItemFruts";
+import ButtonState from "./components/ButtonState";
 //import useFactorial from './useFactorial'
 import "./App.css";
+import ListFrust from "./components/listFruts";
 
 const App =() =>{
   const [count, setCount] = useState(0);
@@ -78,6 +80,7 @@ const App =() =>{
       </div>
 
       <div>
+      < ListFrust fruts={fruts}/>
         <ul>
           {fruts.map((frut, index) => {
            return <ItemFrust key={index} frut={frut}/>;
@@ -88,6 +91,7 @@ const App =() =>{
         <h1>Total {count}</h1>
       </div>
       <MyButton text="hola"/>
+      <ButtonState/>
 
       <p className="read-the-docs">Vite by Yesid Banguera</p>
     </>
