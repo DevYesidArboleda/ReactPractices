@@ -1,6 +1,9 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import dreamLogo from "/logoDreamCode.png";
+import MyButton from "./components/MyButton";
+import Pokemon from "./components/Pokemon";
+import ItemFrust from "./components/ItemFruts";
 //import useFactorial from './useFactorial'
 import "./App.css";
 
@@ -10,6 +13,7 @@ const App =() =>{
   //Maps
   const fruts = ["🌰", "🍏", "🍉", "🍐", "🍑", "🍋", "🍊", "🍉", "🍇", "🥭"];
 
+  
   const calcularFactorial = () => {
     let resultado = 1;
 
@@ -18,7 +22,7 @@ const App =() =>{
       console.log("count", i);
     }
     setFactorial(resultado);
-    console.log("factorial", resultado);
+    //console.log("factorial", resultado);
   };
 
   //Objetos
@@ -32,7 +36,7 @@ const App =() =>{
 
   const { nombre } = mascotas;
 
-  console.log(nombre);
+  //console.log(nombre);
 
   const paginaWeb = {
     dominio: ["yesid"],
@@ -48,40 +52,9 @@ const App =() =>{
     },
   };
 
-  console.log(paginaWeb.redesSociales.youtube.url);
-
-  const resultadoArray = [];
-
-  fetch("https://pokeapi.co/api/v2/pokemon")
-    .then((res) => res.json())
-    .then((data) => {
-      data.results.forEach((element) => {
-        resultadoArray.push(element);
-      });
-    });
-
-  console.log(resultadoArray);
-
-  //Async await and Map
-
-  const obtnerPokemon = async () => {
-    try {
-      const res = await fetch("https://pokeapi.co/api/v2/pokemon");
-      const data = await res.json();
-      console.log("respuesta Pokemon", data.results);
-      data.results.map((poke) => console.log(poke));
-      const filter = data.results.filter((poken) => poken.name !== "bulbasaur");
-      console.log("filter", filter);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  obtnerPokemon();
-
-  const MyButton = () => {
-    return <button>Click</button>;
-  };
+  //console.log(paginaWeb.redesSociales.youtube.url);
+  
+  Pokemon();  
 
   return (
     <>
@@ -107,14 +80,14 @@ const App =() =>{
       <div>
         <ul>
           {fruts.map((frut, index) => {
-           return <li key={index}>{frut}</li>;
+           return <ItemFrust key={index} frut={frut}/>;
           })}
         </ul>
       </div>
       <div className="totalNumber">
         <h1>Total {count}</h1>
       </div>
-      <MyButton />
+      <MyButton text="hola"/>
 
       <p className="read-the-docs">Vite by Yesid Banguera</p>
     </>
